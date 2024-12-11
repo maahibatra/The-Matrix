@@ -81,15 +81,31 @@ class FallingChar {
     constructor(x, y) {
         this.x = x;
         this.y = y;
+        this.glitchTimer = Math.floor(Math.random() * 100);
     }
 
     draw (ctx) {
         this.value = charArr[Math.floor(Math.random() * (charArr.length - 1))].toUpperCase();
         this.speed = Math.random() * fontSize * 3/4 + fontSize * 3/4;
 
+        ctx.font = fontSize + "px sans-serif";
+
+        if(this.glitchTimer % 300 === 0) {
+            const glitchColor = Math.random() > 0.5 ? "rgb(255, 50, 50)" : "rgb(0, 0, 255)";
+            ctx.fillStyle = glitchColor;
+
+            let groupSize = Math.floor(Math.random() * 5) + 3;
+
+            for(let i = 0; i < groupSize; i++) {
+                let offsetX = Math.random() * fontSize - fontSize / 10;
+                let offsetY = Math.random() * fontSize - fontSize / 10;
+                ctx.fillText(this.value, this.x + offsetX, this.y + offsetY);
+            }
+        }
+
         ctx.fillStyle = "rgba(0, 255, 0)";
-        ctx.font = fontSize + "px san-serif";
         ctx.fillText(this.value, this.x, this.y);
+        
         this.y += this.speed;
 
         if(this.y > ch) {
@@ -97,6 +113,8 @@ class FallingChar {
             this.x = Math.floor(Math.random() * maxColumns) * fontSize;
             this.speed = - Math.random() *fontSize * 3/4 + fontSize * 3/4;
         }
+
+        this.glitchTimer++;
     }
 }
 
@@ -105,8 +123,10 @@ let update = () => {
         let fallingChar = new FallingChar(Math.floor(Math.random() * maxColumns) * fontSize, Math.random() * ch/2 - 50);
         fallingCharArr.push(fallingChar);
     }
+    
     ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
     ctx.fillRect(0, 0, cw, ch)
+
     for(let i = 0; i < fallingCharArr.length && frames % 2 == 0; i++) {
         fallingCharArr[i].draw(ctx);
     }
