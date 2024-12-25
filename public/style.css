@@ -1,5 +1,38 @@
+* {
+    font-family: monospace;
+}
+
 body {
     margin: 0;
+}
+
+.loading {
+    position: absolute;
+    color: #a3ffb8;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+    skew(-20deg);
+    font-size: 7vw;
+    border: 0.3vw solid #a3ffb8;
+    border-radius: 0.4vw;
+    padding: 1vw 3vw;
+    white-space: nowrap;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(0.1vw);
+    width: 70vw;
+    box-sizing: border-box;
+    animation: loadIni 0.4s, glitch 1s infinite, borderGlitch 1s infinite;
+}
+
+.loadMessage {
+    transform: skew(20deg);
+    margin-bottom: -2vw;
+    visibility: hidden;
+    width: 15ch;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
 }
 
 .welcome {
@@ -16,24 +49,9 @@ body {
     white-space: nowrap;
     background-color: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(0.1vw);
-    width: 82%;
+    width: 85vw;
     box-sizing: border-box;
-    animation: borderGlitch 1s infinite;
-}
-
-@keyframes borderGlitch {
-    0%, 100% {
-        box-shadow: 0 0 0.5vw rgba(0, 255, 0, 0.8);
-    }
-    25% {
-        box-shadow: -0.3vw 0 0.7vw #006400, 0.3vw 0 0.7vw #66ff66;
-    }
-    50% {
-        box-shadow: -0.2vw 0 0.3vw #00ff7f, 0.2vw 0 0.5vw #32cd32;
-    }
-    75% {
-        box-shadow: -0.4vw 0 0.4vw #00b300, 0.4vw 0 1vw #98fb98;
-    }
+    visibility: hidden;
 }
 
 .welcMessage, .name {
@@ -42,38 +60,11 @@ body {
 
 .welcMessage {
     transform: skew(20deg);
-    animation: typing 1.3s steps(9), glitch 1s infinite;
     white-space: nowrap;
-    font-family: monospace;
     overflow: hidden;
     margin-bottom: -2vw;
-    font-family: 'IBM Plex Mono', serif;
-}
-
-@keyframes typing {
-    from {
-        width: 0;
-    } to {
-        width: 50%;
-    }
-}
-
-@keyframes glitch {
-    0% {
-        text-shadow: 2px 0 #1b8f0d, -2px 0 #006a55;
-    }
-    25% {
-        text-shadow: -2px -2px #006a55, 2px 2px #1b8f0d;
-    }
-    50% {
-        text-shadow: 2px 2px #1b8f0d, -2px -2px #006a55;
-    }
-    75% {
-        text-shadow: -1px 1px #006a55, 1px -1px #1b8f0d;
-    }
-    100% {
-        text-shadow: 0 0 #1b8f0d, -2px 0 #006a55;
-    }
+    font-family: monospace;
+    visibility: hidden;
 }
 
 .name {
@@ -86,10 +77,40 @@ body {
     color: #a3ffb8;
     outline: none;
     visibility: hidden;
-    animation: reveal 0.35s ease-out forwards, glitch 1s infinite, borderGlitchBottom 1s infinite;
     animation-delay: 1.3s;
-    font-family: 'IBM Plex Mono', serif;
     text-align: center;
+}
+
+@keyframes loadIni {
+    from {
+        width: 0;
+    } to {
+        width: 70vw;
+    }
+}
+
+@keyframes loadWelc {
+    from {
+        width: 0;
+    } to {
+        width: 85vw;
+    }
+}
+
+@keyframes typingIni {
+    from {
+        width: 0;
+    } to {
+        width: 15ch;
+    }
+}
+
+@keyframes typingWelc {
+    from {
+        width: 0;
+    } to {
+        width: 9ch;
+    }
 }
 
 @keyframes reveal {
@@ -116,6 +137,21 @@ body {
     }
     100% {
         text-shadow: 0 0 #1b8f0d, -2px 0 #006a55;
+    }
+}
+
+@keyframes borderGlitch {
+    0%, 100% {
+        box-shadow: 0 0 0.5vw rgba(0, 255, 0, 0.8);
+    }
+    25% {
+        box-shadow: -0.3vw 0 0.7vw #006400, 0.3vw 0 0.7vw #66ff66;
+    }
+    50% {
+        box-shadow: -0.2vw 0 0.3vw #00ff7f, 0.2vw 0 0.5vw #32cd32;
+    }
+    75% {
+        box-shadow: -0.4vw 0 0.4vw #00b300, 0.4vw 0 1vw #98fb98;
     }
 }
 

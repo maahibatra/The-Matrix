@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Matrix</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <canvas width="800" height="800" id="canvas"></canvas>
-    <div id="welcome" class="welcome">
-        <div id="welcMessage" class="welcMessage">Welcome, </div>
-        <input type="text" id="name" class="name"></input>
+    <canvas id="canvas"></canvas>
+    <div class="loading">
+        <div class="loadMessage">Initializing...</div>
+    </div>
+    <div class="welcome">
+        <div class="welcMessage">Welcome, </div>
+        <input type="text" class="name"></input>
     </div>
 
     <script src="matrix.js"></script>
