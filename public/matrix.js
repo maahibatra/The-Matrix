@@ -88,7 +88,7 @@ class FallingChar {
         this.value = charArr[Math.floor(Math.random() * (charArr.length - 1))].toUpperCase();
         this.speed = Math.random() * fontSize * 3/4 + fontSize * 3/4;
 
-        if(this.glitchTimer % 250 === 0) {
+        if(this.glitchTimer % 222 === 0) {
             const glitchColor = Math.random() > 0.5 ? "#a3ffb8" : "#64d364";
             ctx.fillStyle = glitchColor;
 
