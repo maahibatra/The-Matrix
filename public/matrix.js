@@ -90,8 +90,8 @@ class FallingChar {
 
         ctx.font = fontSize + "px sans-serif";
 
-        if(this.glitchTimer % 300 === 0) {
-            const glitchColor = Math.random() > 0.5 ? "rgb(255, 50, 50)" : "rgb(0, 0, 255)";
+        if(this.glitchTimer % 250 === 0) {
+            const glitchColor = Math.random() > 0.5 ? "#a3ffb8" : "#64d364";
             ctx.fillStyle = glitchColor;
 
             let groupSize = Math.floor(Math.random() * 5) + 3;
@@ -103,7 +103,7 @@ class FallingChar {
             }
         }
 
-        ctx.fillStyle = "rgba(0, 255, 0)";
+        ctx.fillStyle = "green";
         ctx.fillText(this.value, this.x, this.y);
         
         this.y += this.speed;
