@@ -3,6 +3,15 @@ const loadMessage = document.querySelector(".loadMessage");
 const welcome = document.querySelector(".welcome");
 const welcMessage = document.querySelector(".welcMessage");
 const nameInput = document.querySelector(".name");
+const bar = document.querySelector(".bar");
+const time = document.querySelector(".time");
+const session = document.querySelector(".session");
+const ip = document.querySelector(".ip");
+const settings = document.querySelector(".settings");
+
+let username = "";
+let ipAddress = "";
+let timeNow = "";
 
 loading.addEventListener("animationend", () => {
     loadMessage.style.visibility = "visible";
@@ -35,14 +44,40 @@ welcMessage.addEventListener("animationend", () => {
 
 nameInput.addEventListener("keydown", (event) => {
     if(event.key === "Enter" && nameInput.value.trim() != "") {
-        const username = nameInput.value.trim();
+        username = nameInput.value.trim();
         welcome.style.animation = "unloadWelc 0.5s";
         welcMessage.style.visibility = "hidden";
         nameInput.style.visibility = "hidden";
         setTimeout(() => {
             welcome.style.display = "none";
+            setTimeout(() => {
+                bar.style.visibility = "visible";
+                bar.style.animation = "revealHeight 0.5s ease forwards";
+                session.textContent = username;
+                generateIP();
+                ip.textContent = ipAddress;
+            }, 500);
         }, 500);
     }
 });
 
+setInterval(() => {
+    getTime();
+    time.textContent = timeNow;
+}, 1000);
 
+function generateIP() {
+    ipAddress = (Math.floor(Math.random() * 255) + 1)+"."
+        +(Math.floor(Math.random() * 255) + 1)+
+        "."+(Math.floor(Math.random() * 255) + 1)+"."
+        +(Math.floor(Math.random() * 255) + 1);
+}
+
+function getTime() {
+    timeNow = new Date();
+    const hours = String(timeNow.getHours()).padStart(2, "0");
+    const minutes = String(timeNow.getMinutes()).padStart(2, "0");
+    const seconds = String(timeNow.getSeconds()).padStart(2, "0");
+
+    timeNow = `${hours}:${minutes}:${seconds}`;
+}
