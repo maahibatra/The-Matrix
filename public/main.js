@@ -8,6 +8,10 @@ const time = document.querySelector(".time");
 const session = document.querySelector(".session");
 const ip = document.querySelector(".ip");
 const settings = document.querySelector(".settings");
+const windows = document.querySelector(".windows");
+const windowElement = document.querySelector(".window");
+const windowHead = document.querySelector(".windowHead");
+const windowBody = document.querySelector(".windowBody");
 
 let username = "";
 let ipAddress = "";
@@ -39,12 +43,13 @@ welcMessage.addEventListener("animationend", () => {
     setTimeout(() => {
         nameInput.style.visibility = "visible";
         nameInput.style.animation = "reveal 0.3s ease-out forwards, glitch 1s infinite, borderGlitchBottom 1s infinite";
+        nameInput.focus();
     }, 50);
 });
 
 nameInput.addEventListener("keydown", (event) => {
     if(event.key === "Enter" && nameInput.value.trim() != "") {
-        username = nameInput.value.trim();
+        username = nameInput.value.trim().toUpperCase();
         welcome.style.animation = "unloadWelc 0.5s";
         welcMessage.style.visibility = "hidden";
         nameInput.style.visibility = "hidden";
@@ -59,6 +64,11 @@ nameInput.addEventListener("keydown", (event) => {
             }, 500);
         }, 500);
     }
+});
+
+bar.addEventListener("animationend", () => {
+    windows.style.visibility = "visible";
+    windowElement.style.animation = `expand 0.5s ease-in-out forwards`;
 });
 
 setInterval(() => {
