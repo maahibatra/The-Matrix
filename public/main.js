@@ -12,6 +12,10 @@ const windows = document.querySelector(".windows");
 const windowElement = document.querySelector(".window");
 const windowHead = document.querySelector(".windowHead");
 const windowBody = document.querySelector(".windowBody");
+const consoleWindow = document.querySelector(".console");
+const assistant = document.querySelector(".assistant");
+const attack = document.querySelector(".attack");
+const cracker = document.querySelector(".cracker");
 
 let username = "";
 let ipAddress = "";
@@ -68,7 +72,16 @@ nameInput.addEventListener("keydown", (event) => {
 
 bar.addEventListener("animationend", () => {
     windows.style.visibility = "visible";
-    windowElement.style.animation = `expand 0.5s ease-in-out forwards`;
+    consoleWindow.style.animation = `expand 0.5s ease-in-out forwards`;
+    setTimeout(() => {
+        assistant.style.animation = `expand 0.5s ease-in-out forwards`;
+        setTimeout(() => {
+            attack.style.animation = `expand 0.5s ease-in-out forwards`;
+            setTimeout(() => {
+                cracker.style.animation = `expand 0.5s ease-in-out forwards`;
+            }, 150);
+        }, 150);
+    }, 150);
 });
 
 setInterval(() => {
