@@ -4,6 +4,7 @@
 
 body {
     margin: 0;
+    overflow: hidden;
 }
 
 .loading {
@@ -22,7 +23,7 @@ body {
     backdrop-filter: blur(0.1vw);
     width: 70vw;
     box-sizing: border-box;
-    animation: loadIni 0.4s, glitch 1s infinite, borderGlitch 1s infinite;
+    animation: loadIni 0.4s, borderGlitch 1s infinite;
 }
 
 .loadMessage {
@@ -150,22 +151,53 @@ body {
     flex: 1;
     font-size: 1vw;
     padding: 1vw;
-    margin-left: 3vw;
+    padding-left: 3vw;
     color: #a3ffb8;
     width: 100%;
     background-color: rgba(0, 26, 13, 0.7);
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
     text-shadow: 0 0 0.2vw #00ff40;
+    overflow-y: scroll;
+    border: none;
+    outline: none;
+    visibility: hidden;
+}
+
+.previous {
+    position: absolute;
+    color: #a3ffb8;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+    skew(-20deg);
+    font-size: 7vw;
+    border: 0.3vw solid #a3ffb8;
+    border-radius: 0.4vw;
+    padding: 1vw 3vw;
+    white-space: nowrap;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(0.1vw);
+    width: 85vw;
+    box-sizing: border-box;
+    visibility: hidden;
+}
+
+.prevMessage {
+    transform: skew(20deg);
+    margin-bottom: -2vw;
+    visibility: hidden;
+    width: 19ch;
+    white-space: nowrap;
     overflow: hidden;
+    display: inline-block;
 }
 
 @keyframes loadIni {
     from {
         width: 0;
+        opacity: 0;
     } to {
         width: 70vw;
+        opacity: 1;
     }
 }
 
@@ -182,12 +214,34 @@ body {
 @keyframes loadWelc {
     from {
         width: 0;
+        opacity: 0;
     } to {
         width: 85vw;
+        opacity: 1;
     }
 }
 
 @keyframes unloadWelc {
+    from {
+        width: 85vw;
+        opacity: 1;
+    } to {
+        width: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes loadPrev {
+    from {
+        width: 0;
+        opacity: 0;
+    } to {
+        width: 85vw;
+        opacity: 1;
+    }
+}
+
+@keyframes unloadPrev {
     from {
         width: 85vw;
         opacity: 1;
@@ -210,6 +264,14 @@ body {
         width: 0;
     } to {
         width: 9ch;
+    }
+}
+
+@keyframes typingPrev {
+    from {
+        width: 0;
+    } to {
+        width: 19ch;
     }
 }
 

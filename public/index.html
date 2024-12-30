@@ -27,133 +27,141 @@
     <div class="windows">
         <div class="window console">
             <div class="windowHead">Program Console</div>
-            <div class="windowBody">
-                > boot_system --verbose<br><br>
+            <textarea class="windowBody">
+> boot_system --verbose
 
-                [INFO] Initializing system core...<br>
-                [INFO] Verifying hardware dependencies...<br>
-                [OK] CPU: Intel Quantum Core i9 12th Gen detected<br>
-                [OK] Memory: 64GB DDR5 ready<br>
-                [OK] Storage: 2TB SSD mounted<br><br>
-            
-                [INFO] Checking system integrity...<br>
-                [OK] Kernel checksum verified<br>
-                [WARN] Firewall rules outdated. Applying patch...<br>
-                [OK] Firewall patched successfully<br><br>
-            
-                [INFO] Loading modules:<br>
-                  - crypto_engine.dll..........[LOADED]<br>
-                  - network_sniffer.sys........[LOADED]<br>
-                  - shadow_proxy.vmod..........[FAILED]<br>
-                  - breach_tracker.bin.........[LOADED]<br><br>
-            
-                [ERROR] shadow_proxy.vmod failed to initialize<br>
-                Reason: Dependency conflict with system_proxy.dll<br><br>
-            
-                [INFO] Starting core processes:<br>
-                  - Daemon [network_monitor]...[RUNNING]<br>
-                  - Daemon [file_watcher]......[RUNNING]<br>
-                  - Daemon [data_sanitizer]....[RUNNING]<br><br>
-            
-                > netstat -an | grep LISTEN<br><br>
-            
-                [INFO] Active connections:<br>
-                  Proto   Local Address     Foreign Address   State<br>
-                  TCP     127.0.0.1:22      0.0.0.0:0         LISTEN<br>
-                  TCP     192.168.1.5:8080  0.0.0.0:0         LISTEN<br>
-                  UDP     192.168.1.5:53    0.0.0.0:0         LISTEN<br><br>
-            
-                [ALERT] Unauthorized access attempt detected:<br>
-                  Source IP: 173.194.55.102<br>
-                  Target Port: 8080<br>
-                  Action: Connection terminated
-            </div>            
+[INFO] Initializing system core...
+[INFO] Verifying hardware dependencies...
+[OK] CPU: Intel Quantum Core i9 12th Gen detected
+[OK] Memory: 64GB DDR5 ready
+[OK] Storage: 2TB SSD mounted
+
+[INFO] Checking system integrity...
+[OK] Kernel checksum verified
+[WARN] Firewall rules outdated. Applying patch...
+[OK] Firewall patched successfully
+
+[INFO] Loading modules:
+  - crypto_engine.dll..........[LOADED]
+  - network_sniffer.sys........[LOADED]
+  - shadow_proxy.vmod..........[FAILED]
+  - breach_tracker.bin.........[LOADED]
+
+[ERROR] shadow_proxy.vmod failed to initialize
+Reason: Dependency conflict with system_proxy.dll
+
+[INFO] Starting core processes:
+  - Daemon [network_monitor]...[RUNNING]
+  - Daemon [file_watcher]......[RUNNING]
+  - Daemon [data_sanitizer]....[RUNNING]
+
+> netstat -an | grep LISTEN
+
+[INFO] Active connections:
+  Proto   Local Address     Foreign Address   State
+  TCP     127.0.0.1:22      0.0.0.0:0         LISTEN
+  TCP     192.168.1.5:8080  0.0.0.0:0         LISTEN
+  UDP     192.168.1.5:53    0.0.0.0:0         LISTEN
+
+[ALERT] Unauthorized access attempt detected:
+  Source IP: 173.194.55.102
+  Target Port: 8080
+  Action: Connection terminated
+            </textarea>
         </div>
         <div class="window assistant">
             <div class="windowHead">Assistant</div>
-            <div class="windowBody">
-                [Assistant Online]<br>
-                > "Hello, operator. Ready to dive in?"<br><br>
+            <textarea class="windowBody">
+[Assistant Online]
+> "Hello, operator. Ready to dive in?"
 
-                [INFO] Tip: Use `scan_network -all` to identify active hosts.<br>
-                [INFO] Did you know? The encryption module can be bypassed with the right key sequence.<br><br>
+[INFO] Tip: Use `scan_network -all` to identify active hosts.
+[INFO] Did you know?
+The encryption module can be bypassed with the right key sequence.
 
-                > "Analyzing traffic... hold on."<br>
-                [INFO] Unusual pattern detected on subnet 10.0.8.1. Recommend investigating further.<br><br>
+> "Analyzing traffic... hold on."
+[INFO] Unusual pattern detected on subnet 10.0.8.1.
+Recommend investigating further.
 
-                > "Need help with something? You know where to ask."<br>
-                [ALERT] Shadow Proxy still offline. You're going to need that for deeper layers.<br>
-                [INFO] Suggested next step: Try reloading the shadow_proxy module.<br><br>
+> "Need help with something? You know where to ask."
+[ALERT] Shadow Proxy still offline.
+You're going to need that for deeper layers.
+[INFO] Suggested next step:
+Try reloading the shadow_proxy module.
 
-                > "Oh, and watch out for port 22. It's looking too exposed for my liking."              
-            </div>
+> "Oh, and watch out for port 22. It's looking too exposed for my liking."
+            </textarea>
         </div>
         <div class="window attack">
             <div class="windowHead">Server Attack</div>
-            <div class="windowBody">
-                > Initiating server attack sequence...<br><br>
+            <textarea class="windowBody">
+> Initiating server attack sequence...
 
-                [INFO] Targeting server: 192.168.0.254<br>
-                [INFO] Establishing connection to port 443... [CONNECTED]<br>
-                [INFO] Deploying exploit: CVE-2024-3250 (Buffer Overflow)<br>
-                [OK] Exploit deployed successfully<br>
-                [INFO] Injecting payload...<br><br>
-                
-                [PROGRESS] Payload upload: ████▒▒▒▒▒▒▒▒▒▒ 25%<br>
-                [PROGRESS] Payload upload: ███████▒▒▒▒▒▒▒ 50%<br>
-                [PROGRESS] Payload upload: ██████████▒▒▒▒ 75%<br>
-                [OK] Payload upload: ████████████████ 100%<br><br>
-                
-                > Executing payload...<br>
-                [INFO] Elevating privileges to root...<br>
-                [OK] Privileges elevated<br>
-                [INFO] Extracting sensitive data...<br><br>
-                
-                [DATA EXTRACTED]<br>
-                - Filename: credentials.db<br>
-                - Filename: server_config.ini<br>
-                - Filename: encrypted_logs.zip<br><br>
-                
-                [WARNING] Intrusion detected! Server deploying countermeasures...<br>
-                > Deploying counter-countermeasures... [SUCCESS]<br>
-                [INFO] Attack sequence complete. Connection terminated.<br>           
-            </div>
+[INFO] Targeting server: 192.168.0.254
+[INFO] Establishing connection to port 443... [CONNECTED]
+[INFO] Deploying exploit: CVE-2024-3250 (Buffer Overflow)
+[OK] Exploit deployed successfully
+[INFO] Injecting payload...
+
+[PROGRESS] Payload upload: ████▒▒▒▒▒▒▒▒▒▒ 25%
+[PROGRESS] Payload upload: ███████▒▒▒▒▒▒▒ 50%
+[PROGRESS] Payload upload: ██████████▒▒▒▒ 75%
+[OK] Payload upload: ████████████████ 100%
+
+> Executing payload...
+[INFO] Elevating privileges to root...
+[OK] Privileges elevated
+[INFO] Extracting sensitive data...
+
+[DATA EXTRACTED]
+- Filename: credentials.db
+- Filename: server_config.ini
+- Filename: encrypted_logs.zip
+
+[WARNING] Intrusion detected! Server deploying countermeasures...
+> Deploying counter-countermeasures... [SUCCESS]
+[INFO] Attack sequence complete. Connection terminated.
+            </textarea>
         </div>
         <div class="window cracker">
             <div class="windowHead">Password Cracker</div>
-            <div class="windowBody">
-                > Initiating password cracker...<br><br>
+            <textarea class="windowBody">
+> Initiating password cracker...
 
-                [INFO] Target system: 192.168.0.12<br>
-                [INFO] Hash type detected: SHA-256<br>
-                [INFO] Dictionary loaded: rockyou.txt (14,344,392 entries)<br><br>
-                
-                > Beginning brute force attack...<br><br>
-                
-                [PROGRESS] Attempts: 1,024<br>
-                [PROGRESS] Attempts: 4,096<br>
-                [PROGRESS] Attempts: 16,384<br>
-                [INFO] Partial match found: ******RD<br>
-                [PROGRESS] Attempts: 65,536<br>
-                [INFO] Refining search...<br><br>
-                
-                [CRACKED] Password found: P@ssw0rd123<br>
-                [INFO] Elapsed time: 47 seconds<br><br>
-                
-                > Testing access with cracked credentials...<br>
-                [OK] Access granted to target system.<br>
-                [INFO] Extracting secure files...<br><br>
-                
-                [DATA EXTRACTED]<br>
-                - /users/admin/secret_docs.pdf<br>
-                - /logs/security_audit.txt<br>
-                - /configs/hidden_config.json<br><br>
-                
-                > Crack completed. Connection closed.              
-            </div>
+[INFO] Target system: 192.168.0.12
+[INFO] Hash type detected: SHA-256
+[INFO] Dictionary loaded: rockyou.txt (14,344,392 entries)
+
+> Beginning brute force attack...
+
+[PROGRESS] Attempts: 1,024
+[PROGRESS] Attempts: 4,096
+[PROGRESS] Attempts: 16,384
+[INFO] Partial match found: ******RD
+[PROGRESS] Attempts: 65,536
+[INFO] Refining search...
+
+[CRACKED] Password found: P@ssw0rd123
+[INFO] Elapsed time: 47 seconds
+
+> Testing access with cracked credentials...
+[OK] Access granted to target system.
+[INFO] Extracting secure files...
+
+[DATA EXTRACTED]
+- /users/admin/secret_docs.pdf
+- /logs/security_audit.txt
+- /configs/hidden_config.json
+
+> Crack completed. Connection closed.
+            </textarea>
         </div>
     </div>
-
+    <div class="previous">
+        <div class="prevMessage">
+            Loading previous...
+        </div>
+    </div>
     <script src="matrix.js"></script>
     <script src="main.js"></script>
 </body>

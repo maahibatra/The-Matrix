@@ -9,13 +9,15 @@ const session = document.querySelector(".session");
 const ip = document.querySelector(".ip");
 const settings = document.querySelector(".settings");
 const windows = document.querySelector(".windows");
-const windowElement = document.querySelector(".window");
+const windowElement = document.querySelectorAll(".window");
 const windowHead = document.querySelector(".windowHead");
 const windowBody = document.querySelector(".windowBody");
 const consoleWindow = document.querySelector(".console");
 const assistant = document.querySelector(".assistant");
 const attack = document.querySelector(".attack");
 const cracker = document.querySelector(".cracker");
+const previous = document.querySelector(".previous");
+const prevMessage = document.querySelector(".prevMessage");
 
 let username = "";
 let ipAddress = "";
@@ -23,7 +25,7 @@ let timeNow = "";
 
 loading.addEventListener("animationend", () => {
     loadMessage.style.visibility = "visible";
-    loadMessage.style.animation = "typingIni 1s steps(15)";
+    loadMessage.style.animation = "typingIni 1s steps(15), glitch 1s infinite";
 });
 
 loadMessage.addEventListener("animationend", () => {
@@ -72,17 +74,56 @@ nameInput.addEventListener("keydown", (event) => {
 
 bar.addEventListener("animationend", () => {
     windows.style.visibility = "visible";
-    consoleWindow.style.animation = `expand 0.5s ease-in-out forwards`;
+    consoleWindow.style.animation = "expand 0.5s ease-in-out forwards";
     setTimeout(() => {
-        assistant.style.animation = `expand 0.5s ease-in-out forwards`;
+        assistant.style.animation = "expand 0.5s ease-in-out forwards";
         setTimeout(() => {
-            attack.style.animation = `expand 0.5s ease-in-out forwards`;
+            attack.style.animation = "expand 0.5s ease-in-out forwards";
             setTimeout(() => {
-                cracker.style.animation = `expand 0.5s ease-in-out forwards`;
+                cracker.style.animation = "expand 0.5s ease-in-out forwards";
             }, 150);
         }, 150);
     }, 150);
 });
+
+cracker.addEventListener("animationend", () => {
+    setTimeout(() => {
+        previous.style.visibility = "visible";
+        previous.style.animation = "loadPrev 0.5s, borderGlitch 1s infinite";
+    }, 750);
+});
+
+previous.addEventListener("animationend", () => {
+    prevMessage.style.visibility = "visible";
+    prevMessage.style.animation = "typingPrev 0.4s steps(10), glitch 1s infinite";
+})
+
+prevMessage.addEventListener("animationend", () => {
+    setTimeout(() => {
+        previous.style.animation = "unloadPrev 0.5s";
+        prevMessage.style.visibility = "visible";
+        prevMessage.style.animation = "typingPrev 1s steps(19), glitch 1s infinite";
+        consoleWindow.querySelector(".windowBody").style.visibility = "visible";
+        consoleWindow.querySelector(".windowBody").scrollTop = consoleWindow.querySelector(".windowBody").scrollHeight;
+        setTimeout(() => {
+            assistant.querySelector(".windowBody").style.visibility = "visible";
+            assistant.querySelector(".windowBody").scrollTop = assistant.querySelector(".windowBody").scrollHeight;
+            setTimeout(() => {
+                attack.querySelector(".windowBody").style.visibility = "visible";
+                attack.querySelector(".windowBody").scrollTop = attack.querySelector(".windowBody").scrollHeight;
+                setTimeout(() => {
+                    cracker.querySelector(".windowBody").style.visibility = "visible";
+                    cracker.querySelector(".windowBody").scrollTop = cracker.querySelector(".windowBody").scrollHeight;
+                }, 150);
+            }, 150);
+        }, 150);
+        prevMessage.style.visibility = "hidden";
+    }, 1500);
+    setTimeout(() => {
+        previous.style.animation = "unloadPrev 0.5s";
+        previous.style.display = "none";
+    }, 2000);
+})
 
 setInterval(() => {
     getTime();
